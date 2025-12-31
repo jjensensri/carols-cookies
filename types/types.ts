@@ -48,6 +48,25 @@ export type RunnerTokenizeResponse = {
   expiration: string;
 };
 
+export type RunnerChargeBody = {
+  amount: number | undefined;
+  name: string | undefined;
+  company_name: string | undefined;
+  email: string | undefined;
+  phone: string | undefined;
+  address1: string | undefined;
+  address2: string | undefined;
+  address_city: string | undefined;
+  address_state: string | undefined;
+  account_zip: string | undefined;
+  address_country: string | undefined;
+  order_id: string | undefined;
+  capture: string | undefined;
+  mid: string | undefined;
+  account_token: string | undefined;
+  expiration: string | undefined;
+};
+
 export type RunnerChargeResponse = {
   account_token: string | null;
   account_zip: string | null;

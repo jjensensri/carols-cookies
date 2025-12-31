@@ -4,20 +4,20 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { Alert, Button, Spinner } from 'react-bootstrap';
 import { useCheckout } from '@app/checkout-context';
+import { runnerPostCharge } from '@app/actions';
+import { RunnerChargeBody } from '@/types/types';
 
 import styles from './payment-form.module.scss';
 
-// todo: move this to server actions
-const apiKey = process.env.RUN_API_KEY;
-
 export const PaymentForm = () => {
   const { cart, checkout } = useCheckout();
+
+  const nameOnCard = useRef<HTMLInputElement>(null);
 
   const [runnerLoaded, setRunnerLoaded] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [loading, setLoading] = useState(false);
-  const nameOnCard = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const handleLoad = () => {
@@ -77,60 +77,41 @@ export const PaymentForm = () => {
 
         // @ts-ignore
         runner.tokenize(async (res) => {
-          const url = 'https://javelin.runpayments.io/api/v1/charge';
-          const options = {
-            method: 'POST',
-            headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              amount: cart?.total,
-              name: nameOnCard.current?.value,
-              company_name: checkout?.billingAddress.company,
-              email: '',
-              phone: checkout?.billingPhone,
-              address1: checkout?.billingAddress.street1,
-              address2: checkout?.billingAddress.street2,
-              address_city: checkout?.billingAddress.city,
-              address_state: checkout?.billingAddress.state,
-              account_zip: checkout?.billingAddress.zip,
-              address_country: checkout?.billingAddress.country,
-              order_id: cart?.woocommerce_cart_hash,
-              capture: 'Y',
-              mid: process.env.NEXT_PUBLIC_RUN_MID,
-              account_token: res.account_token,
-              expiration: res.expiry,
-            }),
+          const body: RunnerChargeBody = {
+            amount: cart?.total,
+            name: nameOnCard.current?.value,
+            company_name: checkout?.billingAddress.company,
+            email: '',
+            phone: checkout?.billingPhone,
+            address1: checkout?.billingAddress.street1,
+            address2: checkout?.billingAddress.street2,
+            address_city: checkout?.billingAddress.city,
+            address_state: checkout?.billingAddress.state,
+            account_zip: checkout?.billingAddress.zip,
+            address_country: checkout?.billingAddress.country,
+            order_id: cart?.woocommerce_cart_hash,
+            capture: 'Y',
+            mid: process.env.NEXT_PUBLIC_RUN_MID,
+            account_token: res.account_token,
+            expiration: res.expiry,
           };
-          try {
-            const response = await fetch(url, options);
-            const data = await response.json();
-            console.log('charge response: ', data);
+          const data = await runnerPostCharge(body);
+          console.log('runnerPostChargeResponse: ', data);
 
-            if (data['trans_id']) {
-              setSuccessMessage(data['trans_id']);
-              setLoading(false);
+          if (data['trans_id']) {
+            setSuccessMessage(data['trans_id']);
+            setLoading(false);
 
-              // TODO: hit webhook and send user back to WOOCOMMERCE ORDER CONFIRMATION PAGE...
-              //       ...talk to sergio about what he needs for this.
-            } else {
-              setErrorMessage(
-                typeof data === 'object'
-                  ? (data && data.error) ||
-                      Object.keys(data)
-                        .map((k) => data[k].join(' '))
-                        .join(' ')
-                  : JSON.stringify(data)
-              );
-              setLoading(false);
-            }
-          } catch (error: any) {
-            console.error(error);
+            // TODO: hit webhook and send user back to WOOCOMMERCE ORDER CONFIRMATION PAGE...
+            //       ...talk to sergio about what he needs for this.
+          } else {
             setErrorMessage(
-              typeof error === 'object'
-                ? (error && error.error) ||
-                    Object.keys(error)
-                      .map((k) => error[k].join(' '))
+              typeof data === 'object'
+                ? (data && data.error) ||
+                    Object.keys(data)
+                      .map((k) => data[k].join(' '))
                       .join(' ')
-                : JSON.stringify(error)
+                : JSON.stringify(data)
             );
             setLoading(false);
           }
