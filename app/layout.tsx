@@ -11,7 +11,7 @@ import { Header } from '@components/header';
 import { baseUrl } from '@utils/utils';
 import data from '@data/woocommerce.json';
 
-const { SITE_NAME } = process.env;
+const { NEXT_PUBLIC_SITE_NAME } = process.env;
 
 // Font
 const calistoga = Calistoga({
@@ -30,8 +30,8 @@ const palanquin = Palanquin({
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: SITE_NAME!,
-    template: `%s | ${SITE_NAME}`,
+    default: NEXT_PUBLIC_SITE_NAME!,
+    template: `%s | ${NEXT_PUBLIC_SITE_NAME}`,
   },
   robots: {
     follow: true,
