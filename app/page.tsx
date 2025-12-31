@@ -7,8 +7,10 @@ import { Login } from '@components/login';
 import { MultiAddressShipping } from '@components/multi-address-shipping';
 import { PaymentForm } from '@components/payment-form';
 
+const { SITE_NAME } = process.env;
+
 export const metadata: Metadata = {
-  title: "Checkout | Carol's Cookies",
+  title: `Checkout | ${SITE_NAME}`,
   description: 'All-Natural, Handmade, Gourmet Cookies',
 };
 

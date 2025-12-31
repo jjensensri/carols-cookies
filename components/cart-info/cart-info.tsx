@@ -9,7 +9,8 @@ import type { CartItem as CartItemType } from '@/types/types';
 import { getFormattedPrice } from '@/utils/utils';
 
 import styles from './cart-info.module.scss';
-import { Accordion } from 'react-bootstrap';
+
+const { SHIPPING_URL } = process.env;
 
 export const CartInfo = () => {
   const [mobileSummaryOpen, setMobileSummaryOpen] = useState(false);
@@ -37,7 +38,7 @@ export const CartInfo = () => {
             <CartItem item={item} key={index} />
           ))}
         </div>
-        <a className="btn btn-primary" href="https://carolscookies.com/checkout/#shipping">
+        <a className="btn btn-primary" href={SHIPPING_URL}>
           Add Coupon
         </a>
         <FinancialStack />
