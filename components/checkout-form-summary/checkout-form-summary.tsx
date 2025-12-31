@@ -4,7 +4,7 @@ import { useCheckout } from '@app/checkout-context';
 
 import styles from './checkout-form-summary.module.scss';
 
-const { MAIN_CHECKOUT_URL, SHIPPING_URL } = process.env;
+const { NEXT_PUBLIC_MAIN_CHECKOUT_URL, NEXT_PUBLIC_SHIPPING_URL } = process.env;
 
 export const CheckoutFormSummary = () => {
   const { checkout } = useCheckout();
@@ -17,14 +17,14 @@ export const CheckoutFormSummary = () => {
             <td>Email</td>
             <td>{checkout?.email}</td>
             <td>
-              <a href={SHIPPING_URL}>Change</a>
+              <a href={NEXT_PUBLIC_SHIPPING_URL}>Change</a>
             </td>
           </tr>
           <tr>
             <td>Billing Phone</td>
             <td>{checkout?.billingPhone}</td>
             <td>
-              <a href={SHIPPING_URL}>Change</a>
+              <a href={NEXT_PUBLIC_SHIPPING_URL}>Change</a>
             </td>
           </tr>
           <tr>
@@ -52,14 +52,14 @@ export const CheckoutFormSummary = () => {
               {checkout?.shippingAddress.country}
             </td>
             <td>
-              <a href={SHIPPING_URL}>Change</a>
+              <a href={NEXT_PUBLIC_SHIPPING_URL}>Change</a>
             </td>
           </tr>
           <tr>
             <td>Shipping Phone</td>
             <td>{checkout?.billingPhone}</td>
             <td>
-              <a href={SHIPPING_URL}>Change</a>
+              <a href={NEXT_PUBLIC_SHIPPING_URL}>Change</a>
             </td>
           </tr>
           <tr>
@@ -85,14 +85,14 @@ export const CheckoutFormSummary = () => {
               {checkout?.billingAddress.country}
             </td>
             <td>
-              <a href={MAIN_CHECKOUT_URL}>Change</a>
+              <a href={NEXT_PUBLIC_MAIN_CHECKOUT_URL}>Change</a>
             </td>
           </tr>
           <tr>
             <td>Method</td>
             <td>{checkout?.shippingMethod}</td>
             <td>
-              <a href={MAIN_CHECKOUT_URL}>Change</a>
+              <a href={NEXT_PUBLIC_MAIN_CHECKOUT_URL}>Change</a>
             </td>
           </tr>
         </tbody>

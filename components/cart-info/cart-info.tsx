@@ -10,7 +10,7 @@ import { getFormattedPrice } from '@/utils/utils';
 
 import styles from './cart-info.module.scss';
 
-const { SHIPPING_URL } = process.env;
+const { NEXT_PUBLIC_SHIPPING_URL } = process.env;
 
 export const CartInfo = () => {
   const [mobileSummaryOpen, setMobileSummaryOpen] = useState(false);
@@ -38,7 +38,7 @@ export const CartInfo = () => {
             <CartItem item={item} key={index} />
           ))}
         </div>
-        <a className="btn btn-primary" href={SHIPPING_URL}>
+        <a className="btn btn-primary" href={NEXT_PUBLIC_SHIPPING_URL}>
           Add Coupon
         </a>
         <FinancialStack />

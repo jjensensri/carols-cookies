@@ -1,1 +1,1 @@
-export { PaymentForm } from './payment-form.tsx';
+export { PaymentForm } from './payment-form';

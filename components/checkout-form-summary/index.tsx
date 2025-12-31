@@ -1,1 +1,1 @@
-export { CheckoutFormSummary } from './checkout-form-summary.tsx';
+export { CheckoutFormSummary } from './checkout-form-summary';

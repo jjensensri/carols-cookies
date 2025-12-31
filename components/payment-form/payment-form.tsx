@@ -7,7 +7,7 @@ import { useCheckout } from '@app/checkout-context';
 
 import styles from './payment-form.module.scss';
 
-const { SHIPPING_URL } = process.env;
+const { NEXT_PUBLIC_SHIPPING_URL } = process.env;
 
 // todo: move this to server actions
 const apiKey = process.env.RUN_API_KEY;
@@ -177,7 +177,7 @@ export const PaymentForm = () => {
       <Button className={styles['pay-button']} id="pay-button" disabled={!runnerLoaded}>
         {loading ? <Spinner animation="border" variant="light" /> : 'Place Order Now'}
       </Button>
-      <a href={SHIPPING_URL} className={styles['return-to-shipping']}>
+      <a href={NEXT_PUBLIC_SHIPPING_URL} className={styles['return-to-shipping']}>
         &laquo; Return to Shipping
       </a>
     </div>

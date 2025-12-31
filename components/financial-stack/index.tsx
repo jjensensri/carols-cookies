@@ -1,1 +1,1 @@
-export { FinancialStack } from './financial-stack.tsx';
+export { FinancialStack } from './financial-stack';

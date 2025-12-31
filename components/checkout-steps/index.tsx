@@ -1,1 +1,1 @@
-export { CheckoutSteps } from './checkout-steps.tsx';
+export { CheckoutSteps } from './checkout-steps';

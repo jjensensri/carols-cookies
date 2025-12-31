@@ -1,1 +1,1 @@
-export { MultiAddressShipping } from './multi-address-shipping.tsx';
+export { MultiAddressShipping } from './multi-address-shipping';

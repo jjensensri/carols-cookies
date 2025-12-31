@@ -1,1 +1,1 @@
-export { CartInfo } from './cart-info.tsx';
+export { CartInfo } from './cart-info';
