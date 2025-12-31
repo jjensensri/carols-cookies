@@ -11,6 +11,8 @@ import styles from './payment-form.module.scss';
 
 export const PaymentForm = () => {
   const { cart, checkout } = useCheckout();
+  const runPublicKey = process.env.NEXT_PUBLIC_RUN_PUBLIC_KEY;
+  const runMID = process.env.NEXT_PUBLIC_RUN_MID;
 
   const nameOnCard = useRef<HTMLInputElement>(null);
 
@@ -27,8 +29,8 @@ export const PaymentForm = () => {
       // @ts-ignore
       runner.init({
         element: '#run-form',
-        publicKey: process.env.NEXT_PUBLIC_RUN_PUBLIC_KEY,
-        mid: process.env.NEXT_PUBLIC_RUN_MID,
+        publicKey: runPublicKey,
+        mid: runMID,
         useExpiry: true,
         useCvv: true,
         cardLabel: 'Card Number *',
@@ -91,7 +93,7 @@ export const PaymentForm = () => {
             address_country: checkout?.billingAddress.country,
             order_id: cart?.woocommerce_cart_hash,
             capture: 'Y',
-            mid: process.env.NEXT_PUBLIC_RUN_MID,
+            mid: runMID,
             account_token: res.account_token,
             expiration: res.expiry,
           };
