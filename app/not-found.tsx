@@ -10,7 +10,7 @@ export default function NotFound() {
           <Col>
             <h1>Whoops!</h1>
             <p>We can't find that page.</p>
-            <Button className={`mt-4`} href={process.env.NEXT_PUBLIC_MAIN_CHECKOUT_URL}>
+            <Button className={`mt-4`} href="https://carolscookies.com/checkout">
               Back to checkout
             </Button>
           </Col>

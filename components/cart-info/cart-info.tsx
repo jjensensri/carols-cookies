@@ -10,8 +10,6 @@ import { getFormattedPrice } from '@/utils/utils';
 
 import styles from './cart-info.module.scss';
 
-const { NEXT_PUBLIC_SHIPPING_URL } = process.env;
-
 export const CartInfo = () => {
   const [mobileSummaryOpen, setMobileSummaryOpen] = useState(false);
   const { cart } = useCheckout();
@@ -38,7 +36,7 @@ export const CartInfo = () => {
             <CartItem item={item} key={index} />
           ))}
         </div>
-        <a className="btn btn-primary" href={NEXT_PUBLIC_SHIPPING_URL}>
+        <a className="btn btn-primary" href="https://carolscookies.com/checkout/#shipping">
           Add Coupon
         </a>
         <FinancialStack />
