@@ -1,0 +1,23 @@
+@import '@styles/variables';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $light-blue;
+  padding: 20px;
+  box-shadow: $box-shadow;
+  color: $navy-blue;
+}
+.logo {
+  width: 110px;
+  height: 66px;
+  fill: $navy-blue;
+}
+.secure {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+  color: $navy-blue;
+}

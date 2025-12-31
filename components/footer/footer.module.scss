@@ -1,0 +1,28 @@
+@import '@styles/variables';
+
+.footer {
+  font-size: 12px;
+  line-height: 14px;
+  background: $white;
+  border-top: 1px solid $light-grey;
+  padding: 16px;
+  color: $ada-grey;
+
+  :global(.container) {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  a {
+    color: $ada-grey;
+    text-decoration: none;
+
+    & + a {
+      &:before {
+        content: '|';
+        margin-left: 6px;
+        margin-right: 6px;
+      }
+    }
+  }
+}

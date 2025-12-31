@@ -1,0 +1,83 @@
+@import 'variables';
+@import 'bootstrap/scss/bootstrap';
+
+body {
+  color: $black;
+  background: $almost-white;
+  font-family: $font-family-sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  position: relative;
+
+  //margin: 0;
+  //box-sizing: border-box;
+  //background: $almost-white;
+
+  // push footer to bottom of page on short pages
+  &.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    main {
+      flex-grow: 1;
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $navy-blue;
+}
+
+.btn {
+  display: block;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+main {
+  padding: 36px 0;
+}
+
+.checkout {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  position: relative;
+  flex-direction: column;
+
+  @include media-breakpoint-up(lg) {
+    flex-direction: row-reverse;
+  }
+}
+
+.info-panel {
+  background-color: $white;
+  margin: 0 0 36px;
+  padding: 24px;
+  border: 1px solid $vapor;
+  border-bottom-width: 3px;
+  border-radius: $border-radius;
+}
+
+.checkout-form {
+  flex-basis: calc(63%);
+  flex-grow: 0;
+  flex-shrink: 1;
+
+  h1 {
+    margin: 0 0 20px;
+
+    @include media-breakpoint-up(lg) {
+      margin-top: 20px;
+    }
+  }
+}

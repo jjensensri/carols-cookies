@@ -1,0 +1,91 @@
+@use 'sass:map';
+
+// breakpoints & grid
+$container-padding-x: 2rem;
+
+$column-padding-x: 4rem;
+$column-padding-y: 0;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+$container-max-widths: (
+  xs: 575px,
+  sm: 767px,
+  md: 1023px,
+  lg: 1199px,
+  xl: 1399px,
+  xxl: 1400px,
+);
+
+// colors
+$green: #198754;
+$red: #dd1a26;
+
+// blues
+$almost-black: #0d1c5b;
+$navy-blue: #081d5f;
+$light-blue: #bcd8ec;
+$border-blue: #96bde2;
+$light-blue-grey: #eff3f6;
+
+// greys
+$black: #000;
+$dark-grey: #333;
+$ada-grey: #767676;
+$grey: #999;
+$light-grey: #ddd;
+$vapor: #e7e7e7;
+$almost-white: #fafafa;
+$white: #fff;
+
+$colors: (
+  'primary': $navy-blue,
+  'blue': $navy-blue,
+  'red': $red,
+  'info': $light-blue,
+);
+
+$theme-colors: (
+  'primary': $navy-blue,
+  'success': $green,
+  'danger': $red,
+);
+
+$info: $light-blue;
+$focus-ring-color: $border-blue;
+
+// box-shadows
+$box-shadow: 0 0 0.5rem 0 rgba($black, 0.2);
+
+// border radius
+$border-radius: 8px;
+$border-radius-sm: 4px;
+
+// fonts
+$font-family-sans-serif: 'Palanquin', sans-serif;
+$headings-font-family: 'Calistoga', sans-serif;
+$headings-font-weight: 700;
+$headings-line-height: 1.5;
+
+// buttons
+$btn-padding-x: 24px;
+$btn-padding-y: 12px;
+$btn-font-weight: 700;
+$btn-font-size: 14px;
+$btn-border-radius: $border-radius-sm;
+$btn-close-opacity: 1;
+$btn-close-hover-opacity: 0.6;
+$btn-close-focus-shadow: none;
+
+// forms
+$input-border-radius: $border-radius-sm;
+
+// inputs
+$input-border-color: $vapor;

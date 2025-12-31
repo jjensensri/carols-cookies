@@ -1,0 +1,41 @@
+@import '@styles/variables';
+
+.checkout-steps {
+  list-style: none;
+  display: inline-flex;
+  padding: 0;
+  margin: 0 0 16px;
+
+  li {
+    position: relative;
+
+    &.active {
+      font-weight: 700;
+    }
+    a {
+      font-size: 12px;
+      line-height: 1.5;
+      text-decoration: none;
+      color: $almost-black;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+    & + li {
+      margin-left: 6px;
+
+      &:before {
+        content: '';
+        display: inline-flex;
+        width: 12px;
+        height: 12px;
+        background: url('/images/arrow-right.svg') center center no-repeat;
+        background-size: contain;
+        margin-right: 6px;
+        position: relative;
+        top: 1px;
+      }
+    }
+  }
+}

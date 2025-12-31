@@ -1,0 +1,15 @@
+@import '@styles/variables';
+
+.multi-address-shipping {
+  background: $light-blue-grey;
+  border-radius: $border-radius;
+  padding: 12px;
+  margin-bottom: 16px;
+  font-size: 14px;
+
+  a {
+    font-weight: 700;
+    color: $navy-blue;
+    text-decoration: none;
+  }
+}

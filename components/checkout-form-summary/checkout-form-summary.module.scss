@@ -1,0 +1,32 @@
+@import '@styles/variables';
+
+.form-summary {
+  overflow-x: scroll;
+
+  table {
+    width: 100%;
+    border: 1px solid $vapor;
+    font-size: 14px;
+    line-height: 1.5;
+    color: $dark-grey;
+    padding: 0;
+    margin: 0;
+    border-spacing: 0;
+    border-radius: $border-radius;
+  }
+  tr + tr td {
+    border-top: 1px solid $vapor;
+  }
+  td {
+    padding: 10px;
+
+    &:last-of-type {
+      text-align: right;
+    }
+  }
+  a {
+    color: $navy-blue;
+    font-weight: 700;
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "cart": {
+    "items": [
+      {
+        "image": "https://carolscookies.com/wp-content/uploads/2020/11/product-small-gift-box-100x100.jpg",
+        "name": "Small Cookie Gift Box - Gourmet Assortment (Standard)",
+        "quantity": 2,
+        "price": 7600
+      },
+      {
+        "image": "https://carolscookies.com/wp-content/uploads/2020/11/product-happy-birthday-gift-box-100x100.jpg",
+        "name": "Happy Birthday Cookie Gift Box - Gourmet Assortment (Standard)",
+        "quantity": 1,
+        "price": 3950
+      }
+    ],
+    "subtotal": 11550,
+    "estimatedShipping": 1695,
+    "total": 13245,
+    "woocommerce_cart_hash": "66ceca50634c011ff966e4c373e45f03"
+  },
+  "checkout": {
+    "email": "jjensen@stoneroosterinc.com",
+    "billingPhone": "7164917413",
+    "shippingAddress": {
+      "firstName": "Josh",
+      "lastName": "Jensen",
+      "street1": "205 Elmhurst Dr",
+      "city": "Orchard Park",
+      "state": "New York",
+      "zip": "14127",
+      "country": "United States (US)"
+    },
+    "shippingPhone": "7164917413",
+    "billingAddress": {
+      "company": "KP Buffalo",
+      "street1": "Key Bank Center",
+      "street2": "1 Seymour H Knox Iii Plz Ste 1",
+      "city": "Buffalo",
+      "state": "New York",
+      "zip": "14203",
+      "country": "United States (US)"
+    },
+    "shippingMethod": "Ground"
+  }
+}
