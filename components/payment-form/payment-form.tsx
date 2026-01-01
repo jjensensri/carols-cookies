@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { Alert, Button, Spinner } from 'react-bootstrap';
 import { useCheckout } from '@app/checkout-context';
-import { runnerPostCharge } from '@app/actions';
+import { runnerProcessPaymentCharge } from '@app/actions';
 import { RunnerChargeBody } from '@/types/types';
 
 import styles from './payment-form.module.scss';
@@ -97,8 +97,8 @@ export const PaymentForm = () => {
             account_token: res.account_token,
             expiration: res.expiry,
           };
-          const data = await runnerPostCharge(body);
-          console.log('runnerPostChargeResponse: ', data);
+          const data = await runnerProcessPaymentCharge(body);
+          console.log('runnerProcessPaymentChargeResponse: ', data);
 
           if (data['trans_id']) {
             setSuccessMessage(data['trans_id']);
