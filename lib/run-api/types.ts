@@ -1,4 +1,4 @@
-export type RefreshAPIKeyResponse = {
+export type RunRefreshAPIKeyResponse = {
   api_key: string;
   public_key: string;
   refresh_token: string;

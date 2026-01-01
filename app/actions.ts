@@ -2,10 +2,12 @@
 
 import { RunnerChargeBody } from '@/types/types';
 import { refreshRunApiToken } from '@lib/run-api';
+import { RunRefreshAPIKeyResponse } from '@lib/run-api/types';
 
 const RUN_CHARGE_URL = 'https://javelin.runpayments.io/api/v1/charge';
 
 let apiKey = process.env.RUN_API_KEY;
+let refreshToken = process.env.RUN_REFRESH_TOKEN;
 
 export async function runnerPostCharge(body: RunnerChargeBody) {
   try {
@@ -19,8 +21,9 @@ export async function runnerPostCharge(body: RunnerChargeBody) {
     });
 
     if (response.status === 401) {
-      await refreshRunApiToken(apiKey).then((newApiKey: string) => {
-        apiKey = newApiKey;
+      await refreshRunApiToken(apiKey, refreshToken).then((data: RunRefreshAPIKeyResponse) => {
+        apiKey = data.api_key;
+        refreshToken = data.refresh_token;
       });
 
       response = await fetch(RUN_CHARGE_URL, {
